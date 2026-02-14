@@ -1,0 +1,94 @@
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import SlideBarButton from "./SlideBarButton";
+import { sidebarLinks } from "../../../../data/dashboard-links";
+import { IoIosLogOut} from "react-icons/io";
+import ConfirmationModal from "../../../Common/ConfirmationModal";
+import { setLogOut } from "../../../../Services.jsx/Operations/authAPI";
+
+const SideBar = () => {
+  const { loading: authLoading } = useSelector((state) => state.auth);
+  const { loading: profileLoading, user } = useSelector((state) => state.profile);
+  const [logOutModal, setLogOutModal] = useState(null);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  if (authLoading || profileLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-black">
+        <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  const userRole = user?.accountType;
+
+  return (
+    <>
+      {/* Container: Responsive Width - Mobile (70px) vs Laptop (240px+) */}
+      <div className="w-[70px] md:w-[18%] md:min-w-[240px] h-screen bg-[#050505] border-r border-white/5 flex flex-col relative overflow-hidden transition-all duration-300">
+        
+        <div className="absolute bottom-[-10%] left-[-20%] w-[300px] h-[300px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        {/* NAVIGATION LINKS */}
+        <div className="flex flex-col text-white translate-y-14 gap-y-3 flex-1 px-2 md:px-4 overflow-y-auto custom-scrollbar">
+          {sidebarLinks.map((section, i) => {
+            if (section.roles && !section.roles.includes(userRole)) return null;
+
+            return (
+              <div key={i} className="flex flex-col gap-y-3">
+                {/* Section Title: Hidden on Mobile */}
+                <p className="hidden md:block text-gray-600 text-[10px] font-bold tracking-[0.2em] uppercase px-4">
+                  {section.section}
+                </p>
+
+                <div className="flex flex-col">
+                  {section.links.map((link, index) => (
+                    <SlideBarButton
+                      key={index}
+                      icon={link.icon}
+                      path={link.path}
+                      name={link.name}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* BOTTOM SECTION */}
+        <div className="mt-auto p-2 md:p-4 flex text-white flex-col gap-y-2 border-t border-white/5 bg-white/[0.01] backdrop-blur-md">
+          <SlideBarButton
+            icon="IoMdSettings"
+            path="/dashboard/setting"
+            name="Account Settings"
+          />
+
+          <button
+            className="flex items-center justify-center md:justify-start gap-x-3 text-gray-500 text-sm font-bold px-4 py-3 rounded-2xl hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 group"
+            onClick={() =>
+              setLogOutModal({
+                heading: "Confirm Logout?",
+                text1: "You will need to login again to access your dashboard.",
+                button1Text: "Logout",
+                button2Text: "Cancel",
+                btn1Onclick: () => dispatch(setLogOut(navigate)),
+                btn2Onclick: () => setLogOutModal(null),
+              })
+            }
+          >
+            <IoIosLogOut size={20} className="group-hover:rotate-180 transition-transform duration-500" />
+            <span className="hidden md:block uppercase tracking-widest text-[11px]">Logout</span>
+          </button>
+        </div>
+      </div>
+
+      {logOutModal && <ConfirmationModal data={logOutModal} />}
+    </>
+  );
+};
+
+export default SideBar;
