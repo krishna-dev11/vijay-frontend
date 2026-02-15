@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Pagination, Autoplay } from "swiper/modules";
-import { useDispatch, useSelector } from "react-redux";
-import TestimonialCard from "./TestimonialCard";
-import { getAllTestimonials } from "../../../../Services.jsx/Operations/TestimonialAPI";
+// import React, { useEffect, useState } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import { Pagination, Autoplay } from "swiper/modules";
+// import { useDispatch, useSelector } from "react-redux";
+// import TestimonialCard from "./TestimonialCard";
+// import { getAllTestimonials } from "../../../../Services.jsx/Operations/TestimonialAPI";
 
 // const TestimonialSlider = () => {
 //   const [loading, setLoading] = useState(true);
@@ -70,54 +70,81 @@ import { getAllTestimonials } from "../../../../Services.jsx/Operations/Testimon
 
 
 
-// ... Baaki imports same rahenge ...
+
+
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
+import { useDispatch, useSelector } from "react-redux";
+import TestimonialCard from "./TestimonialCard";
+import { getAllTestimonials } from "../../../../Services.jsx/Operations/TestimonialAPI";
 
 const TestimonialSlider = () => {
-  // ... State aur Fetch logic same ...
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const { testimonials } = useSelector((state) => state.testimonial);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getAllTestimonials(1, 10, "Active"));
+      setLoading(false);
+    };
+    fetchData();
+  }, [dispatch]);
+
+  if (loading)
+    return (
+      <div className="text-white text-center py-20">Loading...</div>
+    );
+
+  if (!testimonials || testimonials.length === 0)
+    return (
+      <div className="text-white text-center py-20">
+        No Testimonials Available
+      </div>
+    );
 
   return (
-    <div className="px-4 md:px-6 py-12 md:py-20 bg-black min-h-screen w-full">
-      {/* Section Header */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between mb-8 md:mb-12">
-        <h2 className="text-white text-2xl md:text-4xl font-bold tracking-tight uppercase italic">
-          Our <span className="text-emerald-500">Testimonials</span> Node
+    <div className="px-6 py-20 bg-black min-h-screen">
+      <div className="max-w-7xl mx-auto flex items-center justify-between mb-12">
+        <h2 className="text-white text-3xl md:text-4xl font-bold tracking-tight">
+          Our Testimonials
         </h2>
       </div>
 
-      <div className="max-w-7xl mx-auto overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <Swiper
-          slidesPerView={1.2} // Phone par thoda dusra card dikhega (SaaS look)
-          spaceBetween={15}
+          slidesPerView={1}
+          spaceBetween={25}
           loop={true}
-          centeredSlides={true} // Mobile par center mein rahega
           breakpoints={{
-            640: { slidesPerView: 2, centeredSlides: false },
-            1024: { slidesPerView: 3, centeredSlides: false },
-            1280: { slidesPerView: 4, centeredSlides: false },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
           }}
           autoplay={{
-            delay: 4000,
+            delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          pagination={{ clickable: true, dynamicBullets: true }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
           modules={[Pagination, Autoplay]}
-          className="testimonial-swiper !pb-14"
+          className="testimonial-swiper"
         >
-          {testimonials?.map((t) => (
-            <SwiperSlide key={t._id} className="flex justify-center">
-              <div className="w-full max-w-[320px] md:max-w-none">
-                <TestimonialCard data={t} />
-              </div>
+          {testimonials.map((t) => (
+            <SwiperSlide key={t._id} className="pb-14">
+              <TestimonialCard data={t} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
-      <style jsx global>{`
-        .swiper-pagination-bullet { background: #444 !important; opacity: 1; }
-        .swiper-pagination-bullet-active { background: #10b981 !important; width: 20px; border-radius: 4px; }
-      `}</style>
     </div>
   );
 };
+
+export default TestimonialSlider;
