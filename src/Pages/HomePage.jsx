@@ -38,7 +38,7 @@ const HomePage = () => {
       {/* nav  */}
      
 
-    <div className=" mx-auto w-[98%]"><HeroSection/></div>
+    <div className=" mx-auto pb-5 w-[98%]"><HeroSection/></div>
  
 {/* why to choose */}
     <WebGeneratedHero/>

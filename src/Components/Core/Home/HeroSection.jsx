@@ -4,7 +4,7 @@ import EliteTextSwiper from './EliteTextSwiper'
 
 const HeroSection = () => {
   return (
-      <div className="relative z-10 mx-auto flex  flex-col h-[95vh]  w-[98%] max-w-[1800px] border border-[#ffffff]/10 bg-[#ffffff]/[0.02] backdrop-blur-3xl rounded-[3.5rem] shadow-2xl overflow-hidden">
+      <div className="relative  z-10 mx-auto flex flex-col h-[60vh] md:h-[95vh] w-[95%] md:w-[98%] max-w-[1800px] border border-[#ffffff]/10 bg-[#ffffff]/[0.02] backdrop-blur-3xl rounded-[2rem] md:rounded-[3.5rem] shadow-2xl overflow-hidden">
         
         
 

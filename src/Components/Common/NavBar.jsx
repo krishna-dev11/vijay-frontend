@@ -80,7 +80,7 @@ const { token } = useSelector((state) => state.auth);
 
         <Link onClick={() => setIsMenuOpen(false)} to={"/"}>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center -translate-x-6 gap-3">
 
               <div className="w-10 h-10 rounded-xl bg-[#6A0DAD]/20 flex items-center justify-center border border-[#6A0DAD]/30 shadow-lg shrink-0">
 
@@ -396,7 +396,7 @@ const { token } = useSelector((state) => state.auth);
                       key={idx} 
                       to={`/catalog/${cat.name.split(" ").join("-").toLowerCase()}/${cat._id}`}
                       onClick={() => setIsMenuOpen(false)}
-                      className="text-sm font-bold uppercase tracking-widest text-richblack-5 hover:text-[#10b981]"
+                      className=" font-bold uppercase tracking-widest  text-gray-300 text-[0.7rem] hover:text-[#10b981]"
                     >
                       • {cat.name}
                     </Link>

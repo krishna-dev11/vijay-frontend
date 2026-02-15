@@ -34,10 +34,10 @@ const MyProfile = () => {
   const handleEdit = () => navigate("/dashboard/setting");
 
   return (
-    <div className="relative min-h-screen w-full bg-[#000] text-white overflow-hidden p-6 md:p-12 font-sans">
+    <div className="relative min-h-screen w-full bg-black text-white overflow-hidden p-6 md:p-12 font-sans">
       
       {/* 1. Background Glow & Watermark */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0   bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-[20%] left-[-10%] select-none pointer-events-none opacity-[0.02]">
         <h1 className="text-[15rem] font-bold uppercase tracking-widest">Profile</h1>
       </div>

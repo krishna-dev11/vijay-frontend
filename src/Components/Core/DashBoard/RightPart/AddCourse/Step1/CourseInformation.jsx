@@ -226,7 +226,7 @@ const CourseInformation = () => {
 
       {/* ACTION AREA */}
       <div className="flex justify-end pt-10">
-        <button type="submit" className="group flex items-center gap-3 px-12 py-5 bg-[#ffffff] text-[#000000] font-bold rounded-2xl shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:bg-[#10b981] transition-all uppercase tracking-[0.2em] text-[10px] active:scale-95">
+        <button type="submit" className="group flex -translate-x-12  items-center gap-3 px-12 py-5 bg-[#ffffff] text-[#000000] font-bold rounded-2xl shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:bg-[#10b981] transition-all uppercase tracking-[0.2em] text-[10px] active:scale-95">
           {editCourse ? "Sync Updates" : "Initialize Node"}
           <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
         </button>

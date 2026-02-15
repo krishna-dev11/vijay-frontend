@@ -23,6 +23,9 @@ const AddWalkInStudent = () => {
 
   const inputStyle = "w-full bg-white/[0.03] border border-white/5 rounded-2xl px-5 py-4 text-white placeholder-gray-700 focus:border-emerald-500/30 focus:outline-none transition-all text-sm";
   const labelStyle = "text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 ml-1 mb-2 block";
+  // Pehle ye styles define kar lena taaki clean dikhe
+// const labelStyle = "text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 block px-1";
+// const inputStyle = "w-full bg-[#0a0a0a] border border-white/10 rounded-2xl px-4 py-4 md:py-3 text-white text-sm focus:outline-none focus:border-emerald-500/50 transition-all placeholder:text-gray-600";
 
   return (
     <div className="relative min-h-screen w-full bg-[#000] text-white p-6 md:p-12 overflow-hidden font-sans">
@@ -62,36 +65,64 @@ const AddWalkInStudent = () => {
             </div>
           </label>
 
-          <label>
-            <span className={labelStyle}>Target Batch</span>
-            <select {...register("interestedBatch")} className={inputStyle}>
-              <option value="" className="bg-black">Select Intended Course</option>
-              {user?.courses?.map((c) => <option key={c._id} value={c._id} className="bg-black">{c.courseName}</option>)}
-            </select>
-          </label>
+      // JSX Code:
+<div className="flex flex-col gap-6 w-full">
+  {/* Target Batch Select */}
+  <label className="w-full">
+    <span className={labelStyle}>Target Batch Node</span>
+    <select 
+      {...register("interestedBatch")} 
+      className={`${inputStyle} cursor-pointer`}
+    >
+      <option value="" className="bg-[#0a0a0a] text-gray-400">Select Intended Course</option>
+      {user?.courses?.map((c) => (
+        <option key={c._id} value={c._id} className="bg-[#0a0a0a] text-white py-2">
+          {c.courseName}
+        </option>
+      ))}
+    </select>
+  </label>
 
-          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8 pt-4 border-t border-white/5 mt-4">
-             <label>
-               <span className={labelStyle}>Follow-Up Schedule</span>
-               <input type="date" {...register("followUpDate")} className={inputStyle} />
-             </label>
-             <label>
-               <span className={labelStyle}>Initial Status</span>
-               <select {...register("status")} className={inputStyle}>
-                 <option value="Interested">Interested</option>
-                 <option value="Follow-Up">Follow-Up</option>
-                 <option value="Enrolled">Enrolled</option>
-               </select>
-             </label>
-             <label>
-               <span className={labelStyle}>Acquisition Source</span>
-               <select {...register("source")} className={inputStyle}>
-                 <option value="PHYSICAL_VISIT">Physical Visit</option>
-                 <option value="CALL">Call</option>
-                 <option value="WEBSITE">Website</option>
-               </select>
-             </label>
-          </div>
+  {/* Responsive Grid: Mobile (1 Col) -> Laptop (3 Col) */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-6 border-t border-white/5 mt-4">
+    
+    {/* Follow-Up Date */}
+    <label>
+      <span className={labelStyle}>Follow-Up Schedule</span>
+      <input 
+        type="date" 
+        {...register("followUpDate")} 
+        className={`${inputStyle} [color-scheme:dark] cursor-pointer`} 
+      />
+    </label>
+
+    {/* Initial Status Select */}
+    <label>
+      <span className={labelStyle}>Initial Status Node</span>
+      <select 
+        {...register("status")} 
+        className={`${inputStyle} cursor-pointer`}
+      >
+        <option value="Interested" className="bg-[#0a0a0a]">Interested</option>
+        <option value="Follow-Up" className="bg-[#0a0a0a]">Follow-Up</option>
+        <option value="Enrolled" className="bg-[#0a0a0a]">Enrolled</option>
+      </select>
+    </label>
+
+    {/* Acquisition Source Select */}
+    <label>
+      <span className={labelStyle}>Acquisition Source</span>
+      <select 
+        {...register("source")} 
+        className={`${inputStyle} cursor-pointer`}
+      >
+        <option value="PHYSICAL_VISIT" className="bg-[#0a0a0a]">Physical Visit</option>
+        <option value="CALL" className="bg-[#0a0a0a]">Call</option>
+        <option value="WEBSITE" className="bg-[#0a0a0a]">Website</option>
+      </select>
+    </label>
+  </div>
+</div>
 
           <div className="md:col-span-2 flex justify-end pt-6">
             <button type="submit" className="px-12 py-5 bg-white text-black font-bold rounded-2xl shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:bg-gray-200 transition-all uppercase tracking-widest text-xs active:scale-95">
