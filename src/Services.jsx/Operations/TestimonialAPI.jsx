@@ -2,7 +2,8 @@ import { apiConnector } from "../apiConnector";
 import toast from "react-hot-toast";
 import { TestimonialEndPoints } from "../apis";
 
-const {ADD_TESTIMONIAL} = TestimonialEndPoints
+// const {ADD_TESTIMONIAL} = TestimonialEndPoints
+const {ADD_TESTIMONIAL , GET_ALL_TESTIMONIAL , DELETE_TESTIMONIAL } = TestimonialEndPoints
 
 export const addTestimonial = (formData, token , navigate) => async (dispatch) => {
   const toastId = toast.loading("Adding Testimonial...");
@@ -42,7 +43,7 @@ export const getAllTestimonials = (page = 1, limit = 10, status = "All", token) 
     try {
       const res = await apiConnector(
         "GET",
-        `http://localhost:4000/api/v1/testimonial/getAllTestimonials?page=${page}&limit=${limit}&status=${status}`,
+        `${GET_ALL_TESTIMONIAL}?page=${page}&limit=${limit}&status=${status}`,
         null,
         { Authorization: `Bearer ${token}` }
       );
@@ -61,7 +62,7 @@ export const deleteTestimonial = (testimonialId, token) => {
     try {
       await apiConnector(
         "DELETE",
-        "http://localhost:4000/api/v1/testimonial/deleteTestimonial",
+DELETE_TESTIMONIAL,
         { testimonialId },
         { Authorization: `Bearer ${token}` }
       );

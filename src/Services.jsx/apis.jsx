@@ -116,7 +116,9 @@ export const ExpenseEndPoints = {
 
 
 export const TestimonialEndPoints = {
-  ADD_TESTIMONIAL: BASE_URL + "/testimonial/addTestimonial"
+  ADD_TESTIMONIAL: BASE_URL + "/testimonial/addTestimonial",
+  GET_ALL_TESTIMONIAL :BASE_URL + "/testimonial/getAllTestimonials" ,
+  DELETE_TESTIMONIAL : BASE_URL + "/testimonial/deleteTestimonial"
 }
 
 export const InstallmentEndPoints = {
