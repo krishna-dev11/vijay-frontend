@@ -90,7 +90,7 @@ const { token } = useSelector((state) => state.auth);
 
               <div className="flex flex-col leading-tight">
 
-                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#ffffff]">Vijayvargiya</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#ffffff]">BOLD VOICE</span>
 
                 <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#10b981]/80">Spoken English</span>
 

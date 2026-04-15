@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const slides = [
   {
     protocol: "Academy Protocol Active",
-    main: "Vijayvargiya's",
+    main: "BOLD VOICE",
     grad: "",
     quote: "Where your words transform into authority.",
   },

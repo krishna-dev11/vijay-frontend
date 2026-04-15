@@ -36,7 +36,7 @@ const AboutPage = () => {
           </h2>
 
 <p className="text-gray-400 text-lg max-w-3xl leading-relaxed mb-20">
-  With more than 22 years of excellence, Vijayvargiya Spoken English Institute focuses on 
+  With more than 22 years of excellence, Bold Voive Spoken English Institute focuses on 
   building confidence, improving communication skills, and helping students speak English 
   fluently through practical speaking sessions and personality development training.
 </p>

@@ -55,7 +55,7 @@ const NotFound = () => {
           <div className="flex items-center gap-2 opacity-50">
             <FiZap className="text-[#4b5563]" size={12} />
             <span className="text-[8px] font-bold uppercase tracking-[0.4em] text-[#4b5563]">
-              Vijayvargiya Security Protocol v2.0
+              Bold Voive Security Protocol v2.0
             </span>
           </div>
         </div>

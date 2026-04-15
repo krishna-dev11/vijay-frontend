@@ -51,7 +51,7 @@ const GetInTouchSection = () => {
           </h2>
 
           <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-[400px] mb-6">
-            Have questions about our spoken English courses? Contact Vijayvargiya's Academy today for confident communication.
+            Have questions about our spoken English courses? Contact Bold Voive Academy today for confident communication.
           </p>
 
           {/* CONTACT INFO LIST */}
@@ -59,17 +59,17 @@ const GetInTouchSection = () => {
             <ContactInfoCard 
               icon={FiMail} 
               title="Email Synchronization" 
-              detail="vijayvargiyaenglish@gmail.com" 
+              detail="boldvoiveenglish@gmail.com" 
             />
             <ContactInfoCard 
               icon={FiPhone} 
               title="Direct Helpline" 
-              detail="+91 98267 05035" 
+              detail="+91 88002 70020" 
             />
             <ContactInfoCard 
               icon={FiMapPin} 
               title="Academy Location" 
-              detail="GDC College Road, Near Hotel Surana Palace, Freeganj, Ujjain (MP)" 
+              detail="Freeganj, Ujjain (MP)" 
             />
           </div>
         </div>

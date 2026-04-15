@@ -190,17 +190,19 @@ export function setGoogleLogin(credential, accountType, navigate) {
         throw new Error(response.data.message);
       }
 
+      const userData = response.data.user ?? response.data.User;
+
       dispatch(settoken(response.data.token));
       localStorage.setItem("token", JSON.stringify(response.data.token));
 
-      dispatch(setUser(response.data.user));
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      dispatch(setUser(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
 
       toast.success("Google Login Successful");
       navigate("/");
     } catch (error) {
-      console.log(error);
-      toast.error("Google login failed");
+      console.log("Google login error:", error.response?.data || error);
+      toast.error(error.response?.data?.message || "Google login failed");
     }
 
     dispatch(setLoading(false));

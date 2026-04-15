@@ -55,7 +55,7 @@ export default HeroSection
 //       heading: "Your Way to",
 //       pill: "English",
 //       pillColor: "pill-emerald",
-//       desc: "Vijayvargiya's — 22 years of glorious success. Where hesitation ends and confidence begins."
+//       desc: "Bold Voive — 22 years of glorious success. Where hesitation ends and confidence begins."
 //     },
 //     {
 //       eyebrow: "Elite Protocol Activated",
@@ -321,7 +321,7 @@ export default HeroSection
 //       eyebrow: "Academy Protocol Activated",
 //       heading: "Confidence Is Just",
 //       highlight: "The Beginning",
-//       desc: "Vijayvargiya's — 22 years of glorious success. Where hesitation ends and confidence begins."
+//       desc: "Bold Voive — 22 years of glorious success. Where hesitation ends and confidence begins."
 //     },
 //     {
 //       eyebrow: "Elite Protocol Activated",
@@ -453,6 +453,7 @@ export default HeroSection
 // };
 
 // export default HeroSection;
+
 
 
 

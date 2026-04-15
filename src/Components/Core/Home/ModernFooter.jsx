@@ -21,7 +21,7 @@ const ModernFooter = () => {
       {/* Watermark */}
       <div className="absolute bottom-[-5%] left-1/2 -translate-x-1/2 select-none pointer-events-none z-0">
         <h1 className="text-[10rem] md:text-[18rem] font-bold text-[#ffffff]/[0.02] tracking-[0.1em] uppercase leading-none">
-          Vijayvargiya
+          Bold Voice
         </h1>
       </div>
 
@@ -35,10 +35,10 @@ const ModernFooter = () => {
             
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#6A0DAD]/20 flex items-center justify-center border border-[#6A0DAD]/30 shadow-lg shrink-0">
-                <span className="text-[#ffffff] font-black text-lg">V</span>
+                <span className="text-[#ffffff] font-black text-lg">B</span>
               </div>
               <h2 className="text-3xl font-bold bg-gradient-to-r from-[#ffffff] to-[#6b7280] bg-clip-text text-transparent tracking-tight">
-                Vijayvargiya Spoken English
+                Bold Voice Spoken English
               </h2>
             </div>
             
@@ -120,7 +120,7 @@ const ModernFooter = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-[#ffffff]/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-bold tracking-[0.3em] text-[#4b5563]">
-          <p>© {new Date().getFullYear()} VIJAYVARGIYA SPOKEN ENGLISH INSTITUTE. ALL RIGHTS RESERVED.</p>
+          <p>© {new Date().getFullYear()} BOLD VOICE SPOKEN ENGLISH INSTITUTE. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-8 uppercase">
             <span className="hover:text-[#ffffff] cursor-pointer transition-colors">Privacy Policy</span>
             <span className="hover:text-[#ffffff] cursor-pointer transition-colors">Terms & Conditions</span>

@@ -95,13 +95,13 @@ const B = ({ children }) => (
 
 const instructors = [
   {
-    name: "Manish Vijayvargiya",
+    name: "Krishna Gothwal",
     designation: "Director & Spoken English Expert | 22+ Years Experience",
     bio: [
       { text: "Mr. " },
-      { text: "Manish Vijayvargiya", bold: true },
+      { text: "Krishna Gothwal", bold: true },
       { text: " is the founder and director of " },
-      { text: "Vijayvargiya’s Spoken English Institute", bold: true },
+      { text: "BOLD VOICE Spoken English Institute", bold: true },
       { text: " with more than " },
       { text: "22 years of teaching experience", bold: true },
       { text: ". He has successfully trained thousands of students in spoken English, personality development, and interview preparation." },
@@ -111,11 +111,11 @@ const instructors = [
     ],
   },
   {
-    name: "Nitu Vijayvargiya",
+    name: "Khushal Gothwal",
     designation: "Handwriting & Communication Skills Expert",
     bio: [
       { text: "Mrs. " },
-      { text: "Nitu Vijayvargiya", bold: true },
+      { text: "Khushal Gothwal", bold: true },
       { text: " is an experienced instructor specializing in " },
       { text: "Hindi English handwriting improvement and language training", bold: true },
       { text: ". She uses scientific and practical methods to help students improve writing skills, clarity, and presentation." },

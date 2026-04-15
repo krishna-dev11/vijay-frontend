@@ -10,7 +10,7 @@ const academyStory = [
     id: 1,
     type: "Text",
     heading: "22 Years of Teaching Excellence",
-    description1: "Vijayvargiya Spoken English Institute was established with a simple mission — to help students overcome hesitation and build confidence in spoken English. Over the years, the institute has successfully trained thousands of students through practical and interactive learning methods.",
+    description1: "Bold Voive Spoken English Institute was established with a simple mission — to help students overcome hesitation and build confidence in spoken English. Over the years, the institute has successfully trained thousands of students through practical and interactive learning methods.",
     description2: "Our focus is not only on speaking English, but also on personality development, interview preparation, and communication skills. We believe every student has potential, and with proper guidance, they can achieve success in academics, career, and life."
   },
   {

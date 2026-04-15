@@ -38,7 +38,7 @@ export default function CodingFamily() {
 
         {/* Description */}
         <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto mb-20">
-          Become a part of Vijayvargiya’s Spoken English Institute and build confidence in speaking, 
+          Become a part of Bold Voice Spoken English Institute and build confidence in speaking, 
           personality development, and communication skills through practical learning methods.
         </p>
 

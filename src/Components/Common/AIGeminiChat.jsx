@@ -58,7 +58,7 @@
 //               <Bot size={24} className="text-white" />
 //             </div>
 //             <div>
-//               <h3 className="text-sm font-semibold leading-none text-white">Vijayvargiya AI</h3>
+//               <h3 className="text-sm font-semibold leading-none text-white">Bold Voive AI</h3>
 //               <span className="text-[11px] text-gray-400">Online | AI Powered</span>
 //             </div>
 //           </div>
@@ -255,7 +255,7 @@ const AIGeminiChat = () => {
               <Bot size={24} className="text-white" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold leading-none text-white">Vijayvargiya AI</h3>
+              <h3 className="text-sm font-semibold leading-none text-white">Bold Voive AI</h3>
               <span className="text-[11px] text-gray-400">Online | AI Powered</span>
             </div>
           </div>
