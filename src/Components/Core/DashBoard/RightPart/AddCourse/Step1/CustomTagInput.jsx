@@ -83,13 +83,101 @@
 
 
 
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
+// import { FiX, FiHash } from "react-icons/fi";
+// import { useSelector } from "react-redux";
+
+// const CustomTagInput = ({ name, lable, register, Placeholder, errors, setValue }) => {
+//   const [Chip, setChip] = useState([]);
+//   const [inputValue, setInputValue] = useState("");
+//   const { editCourse, course } = useSelector((state) => state.Course);
+
+//   useEffect(() => {
+//     if (editCourse) setChip(course?.tag || []);
+//     register(name, { required: true, validate: (v) => v.length > 0 });
+//   }, []);
+
+//   useEffect(() => {
+//     setValue(name, Chip);
+//   }, [Chip, name, setValue]);
+
+//   const addChip = () => {
+//     const val = inputValue.trim();
+//     if (val && !Chip.includes(val)) {
+//       setChip([...Chip, val]);
+//       setInputValue("");
+//     }
+//   };
+
+//   const handleKeyUp = (e) => {
+//     if (e.key === "Enter" || e.key === ",") {
+//       e.preventDefault();
+//       addChip();
+//     }
+//   };
+
+//   return (
+//     <div className="flex flex-col gap-4">
+//       <label>
+//         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 block">
+//           {lable} <span className="text-emerald-500">*</span>
+//         </span>
+
+//         <div className="relative group flex gap-2">
+//           <FiHash className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
+          
+//           <input
+//             type="text"
+//             placeholder={Placeholder}
+//             value={inputValue}
+//             onChange={(e) => setInputValue(e.target.value)}
+//             onKeyUp={handleKeyUp}
+//             onBlur={addChip}   // 🔥 mobile fix
+//             className="w-full bg-white/[0.03] border border-white/5 rounded-2xl pl-12 pr-5 py-4 text-white text-sm focus:border-emerald-500/30 outline-none"
+//           />
+//         </div>
+//       </label>
+
+//       <div className="flex flex-wrap gap-2">
+//         {Chip.map((c, i) => (
+//           <div key={i} className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-xl">
+//             <span className="text-[11px] font-bold text-emerald-400 uppercase">{c}</span>
+//             <button
+//               type="button"
+//               onClick={() => setChip(Chip.filter((_, idx) => idx !== i))}
+//             >
+//               <FiX size={14} />
+//             </button>
+//           </div>
+//         ))}
+//       </div>
+
+//       {errors[name] && (
+//         <p className="text-[10px] text-red-500 font-bold">
+//           Tags are mandatory
+//         </p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default CustomTagInput;
+
+
+
+
+
+
+
+
+
+import React, { useEffect, useState, useRef } from "react";
 import { FiX, FiHash } from "react-icons/fi";
 import { useSelector } from "react-redux";
 
 const CustomTagInput = ({ name, lable, register, Placeholder, errors, setValue }) => {
   const [Chip, setChip] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef(null); // 🔥 uncontrolled input
   const { editCourse, course } = useSelector((state) => state.Course);
 
   useEffect(() => {
@@ -101,18 +189,36 @@ const CustomTagInput = ({ name, lable, register, Placeholder, errors, setValue }
     setValue(name, Chip);
   }, [Chip, name, setValue]);
 
-  const addChip = () => {
-    const val = inputValue.trim();
+  const addChip = (value) => {
+    const val = value.trim();
     if (val && !Chip.includes(val)) {
       setChip([...Chip, val]);
-      setInputValue("");
     }
   };
 
-  const handleKeyUp = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === ",") {
       e.preventDefault();
-      addChip();
+      addChip(e.target.value);
+      e.target.value = "";
+    }
+  };
+
+  // 🔥 Mobile fix (comma detection)
+  const handleChange = (e) => {
+    const val = e.target.value;
+    if (val.endsWith(",")) {
+      addChip(val.slice(0, -1));
+      e.target.value = "";
+    }
+  };
+
+  // 🔥 Blur pe bhi add ho jaye (mobile best UX)
+  const handleBlur = () => {
+    const val = inputRef.current.value;
+    if (val) {
+      addChip(val);
+      inputRef.current.value = "";
     }
   };
 
@@ -123,25 +229,30 @@ const CustomTagInput = ({ name, lable, register, Placeholder, errors, setValue }
           {lable} <span className="text-emerald-500">*</span>
         </span>
 
-        <div className="relative group flex gap-2">
-          <FiHash className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
+        <div className="relative group">
+          <FiHash className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 group-focus-within:text-emerald-400 transition-colors" />
           
           <input
+            ref={inputRef}  // 🔥 uncontrolled
             type="text"
             placeholder={Placeholder}
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyUp={handleKeyUp}
-            onBlur={addChip}   // 🔥 mobile fix
-            className="w-full bg-white/[0.03] border border-white/5 rounded-2xl pl-12 pr-5 py-4 text-white text-sm focus:border-emerald-500/30 outline-none"
+            onKeyDown={handleKeyDown}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className="w-full bg-white/[0.03] border border-white/5 rounded-2xl pl-12 pr-5 py-4 text-white text-sm focus:border-emerald-500/30 outline-none transition-all placeholder-gray-700 shadow-inner"
           />
         </div>
       </label>
 
       <div className="flex flex-wrap gap-2">
         {Chip.map((c, i) => (
-          <div key={i} className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-xl">
-            <span className="text-[11px] font-bold text-emerald-400 uppercase">{c}</span>
+          <div
+            key={i}
+            className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-xl"
+          >
+            <span className="text-[11px] font-bold text-emerald-400 uppercase">
+              {c}
+            </span>
             <button
               type="button"
               onClick={() => setChip(Chip.filter((_, idx) => idx !== i))}
