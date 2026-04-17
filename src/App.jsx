@@ -196,8 +196,8 @@ function App() {
           }
         >
           <Route path="/EnrolledCourses/active-Courses" element={<ActiveCourseList/>} />
-          <Route path="/EnrolledCourses/book-marks" element={<Bookmarks/>} />
-          <Route path="/EnrolledCourses/community" element={<Community/>} />
+          {/* <Route path="/EnrolledCourses/book-marks" element={<Bookmarks/>} /> */}
+          {/* <Route path="/EnrolledCourses/community" element={<Community/>} /> */}
           <Route path="/EnrolledCourses/EnterRoom" element={<EnterRoom/>}/>
           <Route path="/EnrolledCourses/:RoomId" element={<LiveClass/>}/>
 

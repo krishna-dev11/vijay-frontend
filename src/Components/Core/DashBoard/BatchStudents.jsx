@@ -192,12 +192,15 @@ const BatchStudents = () => {
                             </span>
 
                             <button
+                              disabled={ totalFee == paid  && remaining === 0}
                               onClick={() =>
                                 navigate(`/EnrolledCourses/collect-installment/${batch._id}/${student._id}`)
                               }
                               className="bg-[#ffffff] text-[#000000] px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-widest hover:bg-[#10b981] transition-all"
                             >
-                              Collect Fee
+                                {totalFee === paid && remaining === 0
+    ? "Completed"
+    : "Collect Fee"}
                             </button>
                           </div>
 

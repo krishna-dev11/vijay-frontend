@@ -126,20 +126,20 @@ export const BuyedCoursessidebarLinks = [
     path: "/EnrolledCourses/active-Courses",
     icon: "FaBook",
   },
-  {
-    name: "Bookmarks",
-    path: "/EnrolledCourses/book-marks",
-    icon: "FaBookmark",
-  },
-  {
-    name: "Community",
-    path: "/EnrolledCourses/community",
-    icon: "FaRegComments",
-  },
+  // {
+  //   name: "Bookmarks",
+  //   path: "/EnrolledCourses/book-marks",
+  //   icon: "FaBookmark",
+  // },
+  // {
+  //   name: "Community",
+  //   path: "/EnrolledCourses/community",
+  //   icon: "FaRegComments",
+  // },
   {
     name: "Students",
     path: "/EnrolledCourses/batch-students/:batchId",
-    icon: ""
+    icon: "FaUsers"
   },
 
 
