@@ -209,12 +209,12 @@ const CourseInformation = () => {
         </div>
 
         <div className="bg-[#ffffff]/[0.02] border border-[#ffffff]/10 p-8 rounded-[2.5rem] backdrop-blur-xl">
-          <span className={labelStyle}>Indexing Tags</span>
+          <span className={labelStyle}>This course includes</span>
           <CustomTagInput name="CourseTag" register={register} errors={errors} setValue={setValue} getValues={getValues} />
         </div>
 
         <div className="bg-[#ffffff]/[0.02] border border-[#ffffff]/10 p-8 rounded-[2.5rem] backdrop-blur-xl">
-          <span className={labelStyle}>Transformation Benefits</span>
+          <span className={labelStyle}>What you'll achieve</span>
           <CourseBenifitsInput name="CourseBenefits" register={register} errors={errors} setValue={setValue} getValues={getValues} />
         </div>
       </div>
